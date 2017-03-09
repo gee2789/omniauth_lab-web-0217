@@ -1,2 +1,8 @@
-<pre><%= JSON.pretty_generate(@auth) %></pre>
-<img src="<%= @auth[:info] && @auth[:info][:image] %>">
+<h1> Give us a username to login </h1>
+<% if flash[:error] %>
+<%= flash[:error] %>
+<%end%>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <input name=name>
+  <input type=submit value='login'>
+<% end %>
